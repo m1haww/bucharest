@@ -18,9 +18,7 @@ class _splashState extends State<splash> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => gama(
-                key: UniqueKey(),
-              ),
+              builder: (context) => const gama(),
             ));
       }
     });

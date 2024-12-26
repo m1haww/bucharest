@@ -60,7 +60,7 @@ class gamaState extends State<gama> {
           ),
           Positioned(
             bottom: 30,
-            child: Container(
+            child: SizedBox(
               height: 70,
               width: MediaQuery.of(context).size.width,
               child: Stack(
