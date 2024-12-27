@@ -11,8 +11,6 @@ class gama extends StatefulWidget {
 }
 
 class gamaState extends State<gama> {
-  GoogleMapController? _controller;
-
   TileOverlay? _tileOverlay;
 
   DateTime _forecastDate = DateTime.now();
@@ -50,9 +48,7 @@ class gamaState extends State<gama> {
             mapType: MapType.normal,
             initialCameraPosition: _initialPosition,
             onMapCreated: (GoogleMapController controller) {
-              setState(() {
-                _controller = controller;
-              });
+              setState(() {});
               _initTiles(_forecastDate);
             },
             tileOverlays:
@@ -61,13 +57,13 @@ class gamaState extends State<gama> {
           Positioned(
             bottom: 30,
             child: SizedBox(
-              height: 70,
+              height: 90,
               width: MediaQuery.of(context).size.width,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Positioned(
-                    left: 30,
+                    left: 20,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -79,32 +75,45 @@ class gamaState extends State<gama> {
                       style: ElevatedButton.styleFrom(
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(20),
+                        backgroundColor: Color(0XFF2b2b2b),
+                        shadowColor: Colors.blue.shade200,
+                        elevation: 8,
                       ),
                       child: const Icon(
                         Icons.arrow_back_rounded,
-                        color: Colors.white,
+                        color: Color(0xffa3865d),
+                        size: 30,
                       ),
                     ),
                   ),
                   Center(
                     child: Card(
-                      elevation: 4,
-                      shadowColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      elevation: 10,
+                      shadowColor: Colors.grey.shade400,
+                      color: Colors.white,
                       child: Container(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.black),
                         child: Text(
-                          'Forecast Date:\n${DateFormat('yyyy-MM-dd ha').format(_forecastDate)}',
+                          'Prediction Date:\n${DateFormat('yyyy-MM-dd ha').format(_forecastDate)}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            color: Colors.blue,
+                            color: Color(0xffa3865d),
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ),
                   ),
                   Positioned(
-                    right: 30,
+                    right: 20,
                     child: ElevatedButton(
                       onPressed:
                           _forecastDate.difference(DateTime.now()).inDays >= 10
@@ -119,10 +128,26 @@ class gamaState extends State<gama> {
                       style: ElevatedButton.styleFrom(
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(20),
+                        backgroundColor:
+                            _forecastDate.difference(DateTime.now()).inDays >=
+                                    10
+                                ? Colors.grey
+                                : Color(0xff2b2b2b),
+                        shadowColor:
+                            _forecastDate.difference(DateTime.now()).inDays >=
+                                    10
+                                ? Colors.transparent
+                                : Color(0xff2b2b2b),
+                        elevation:
+                            _forecastDate.difference(DateTime.now()).inDays >=
+                                    10
+                                ? 0
+                                : 8,
                       ),
                       child: const Icon(
                         Icons.arrow_forward_rounded,
-                        color: Colors.white,
+                        color: Color(0xffa3865d),
+                        size: 30,
                       ),
                     ),
                   ),

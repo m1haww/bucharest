@@ -4,33 +4,33 @@ class alfa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                Icon(Icons.location_on, color: Colors.white, size: 28),
+                Icon(Icons.location_on, color: Color(0xffa3865d), size: 28),
                 SizedBox(width: 8),
                 Text(
                   "Bucharest, RO",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xff8a6d3b),
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
             ),
-            Icon(Icons.menu, color: Colors.white, size: 28),
           ],
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0xff555),
         elevation: 0,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.blueAccent, Colors.deepPurple],
+              colors: [Color(0xff777), Color(0xff555)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -40,7 +40,7 @@ class alfa extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blueAccent, Colors.lightBlue, Colors.white],
+            colors: [Color(0xff555), Color(0xff777), Color(0xff000)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -53,7 +53,7 @@ class alfa extends StatelessWidget {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: Color(0xff8a6d3b),
               ),
             ),
             const SizedBox(height: 10),
@@ -80,7 +80,7 @@ class alfa extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    color: Color(0xff8a6d3b),
                   ),
                 ),
                 TextButton(
@@ -96,14 +96,14 @@ class alfa extends StatelessWidget {
                     "See All",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blueAccent,
+                      color: Color(0xff8a6d3b),
                     ),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 10),
-            DailyForecastCard(
+            const DailyForecastCard(
               day: "Tomorrow",
               condition: "Light Rain Showers",
               maxTemp: 18,
@@ -113,7 +113,7 @@ class alfa extends StatelessWidget {
               wind: 18,
               uvi: 2,
             ),
-            DailyForecastCard(
+            const DailyForecastCard(
               day: "Tuesday, 18 Oct",
               condition: "Sunny",
               maxTemp: 17,
@@ -149,9 +149,23 @@ class SevenDayForecastPage extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("7-Day Forecast"),
-        backgroundColor: Colors.blueAccent,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Color(0xffa3865d),
+          ),
+        ),
+        title: const Text(
+          "Weekcast",
+          style:
+              TextStyle(color: Color(0xff8a6d3b), fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.black,
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
@@ -163,10 +177,10 @@ class SevenDayForecastPage extends StatelessWidget {
             condition: dayData["condition"],
             maxTemp: dayData["maxTemp"],
             minTemp: dayData["minTemp"],
-            chance: 50, // Example value
-            precipitation: 1.2, // Example value
-            wind: 15, // Example value
-            uvi: 3, // Example value
+            chance: 50,
+            precipitation: 1.2,
+            wind: 15,
+            uvi: 3,
           );
         },
       ),
@@ -191,11 +205,11 @@ class HourlyForecastItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
       width: 80,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
+        color: const Color(0xff09020),
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Color(0xff524331),
             blurRadius: 6,
             offset: Offset(0, 3),
           ),
@@ -204,11 +218,14 @@ class HourlyForecastItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 32, color: Colors.blueAccent),
+          Icon(icon, size: 32, color: const Color(0xffa3865d)),
           const SizedBox(height: 5),
-          Text(temp, style: TextStyle(fontWeight: FontWeight.bold)),
+          Text(temp,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Color(0xffa3865d))),
           const SizedBox(height: 5),
-          Text(time, style: TextStyle(color: Colors.grey, fontSize: 12)),
+          Text(time,
+              style: const TextStyle(color: Color(0xffc9c9c9), fontSize: 12)),
         ],
       ),
     );
@@ -242,11 +259,11 @@ class DailyForecastCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
+        color: const Color(0xff09020),
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Color(0xff524331),
             blurRadius: 6,
             offset: Offset(0, 3),
           ),
@@ -260,12 +277,13 @@ class DailyForecastCard extends StatelessWidget {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
+              color: Color(0xff8a6d3b),
             ),
           ),
           const SizedBox(height: 5),
           Text(
             condition,
-            style: TextStyle(color: Colors.blueGrey),
+            style: const TextStyle(color: Color(0xffc9c9c9)),
           ),
           const SizedBox(height: 10),
           Row(
@@ -303,11 +321,14 @@ class ForecastDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(icon, color: Colors.blueAccent),
+        Icon(icon, color: const Color(0xffa3865d)),
         const SizedBox(height: 5),
-        Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+        Text(label,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: Color(0xffc9c9c9))),
         const SizedBox(height: 2),
-        Text(title, style: const TextStyle(color: Colors.grey, fontSize: 12)),
+        Text(title,
+            style: const TextStyle(color: Color(0xffc9c9c9), fontSize: 12)),
       ],
     );
   }
