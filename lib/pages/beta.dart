@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class beta extends StatefulWidget {
+  const beta({super.key});
+
   @override
   State<beta> createState() => _betaState();
 }
@@ -65,14 +67,33 @@ class _betaState extends State<beta> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text(
-          "Profile Page",
-          style: TextStyle(color: Color(0xff8a6d3b)),
-        ),
-        backgroundColor: const Color(0xff524331),
-        elevation: 4.0,
-        centerTitle: true,
-      ),
+          title: const Text(
+            "Profile Page",
+            style: TextStyle(color: Color(0xff8a6d3b)),
+          ),
+          backgroundColor: const Color(0xff524331),
+          elevation: 4.0,
+          centerTitle: true,
+          actions: [
+            ElevatedButton(
+              onPressed: _saveChanges,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff524331),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 40),
+              ),
+              child: const Text(
+                'Save Changes',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff8a6d3b)),
+              ),
+            ),
+          ]),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -186,30 +207,6 @@ class _betaState extends State<beta> {
               const SizedBox(height: 30),
 
               // Action Buttons Section
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ElevatedButton(
-                    onPressed: _saveChanges,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff09020),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 40),
-                    ),
-                    child: const Text(
-                      'Save Changes',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffa3865d),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),

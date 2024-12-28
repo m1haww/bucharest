@@ -75,7 +75,7 @@ class gamaState extends State<gama> {
                       style: ElevatedButton.styleFrom(
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(20),
-                        backgroundColor: Color(0XFF2b2b2b),
+                        backgroundColor: const Color(0XFF2b2b2b),
                         shadowColor: Colors.blue.shade200,
                         elevation: 8,
                       ),
@@ -132,12 +132,12 @@ class gamaState extends State<gama> {
                             _forecastDate.difference(DateTime.now()).inDays >=
                                     10
                                 ? Colors.grey
-                                : Color(0xff2b2b2b),
+                                : const Color(0xff2b2b2b),
                         shadowColor:
                             _forecastDate.difference(DateTime.now()).inDays >=
                                     10
                                 ? Colors.transparent
-                                : Color(0xff2b2b2b),
+                                : const Color(0xff2b2b2b),
                         elevation:
                             _forecastDate.difference(DateTime.now()).inDays >=
                                     10

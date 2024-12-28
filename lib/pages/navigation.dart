@@ -27,9 +27,9 @@ class _NavigationState extends State<Navigation> {
   ];
 
   final List<String> _tabLabels = [
-    "Alfa",
-    "Gama",
-    "Beta",
+    "",
+    "",
+    "",
   ];
 
   @override
@@ -44,7 +44,7 @@ class _NavigationState extends State<Navigation> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Color(0xffa3865d),
+        selectedItemColor: const Color(0xffa3865d),
         unselectedItemColor: Colors.grey,
         showSelectedLabels: true,
         showUnselectedLabels: true,

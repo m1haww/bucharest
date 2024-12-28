@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class alfa extends StatelessWidget {
+  const alfa({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +27,12 @@ class alfa extends StatelessWidget {
             ),
           ],
         ),
-        backgroundColor: const Color(0xff555),
+        backgroundColor: const Color(0x000ff555),
         elevation: 0,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xff777), Color(0xff555)],
+              colors: [Color(0x000ff777), Color(0x000ff555)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -40,7 +42,7 @@ class alfa extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xff555), Color(0xff777), Color(0xff000)],
+            colors: [Color(0x000ff555), Color(0x000ff777), Color(0x000ff000)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -131,6 +133,8 @@ class alfa extends StatelessWidget {
 }
 
 class SevenDayForecastPage extends StatelessWidget {
+  const SevenDayForecastPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> forecastData = [
@@ -194,6 +198,7 @@ class HourlyForecastItem extends StatelessWidget {
   final IconData icon;
 
   const HourlyForecastItem({
+    super.key,
     required this.time,
     required this.temp,
     required this.icon,
@@ -205,7 +210,7 @@ class HourlyForecastItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
       width: 80,
       decoration: BoxDecoration(
-        color: const Color(0xff09020),
+        color: const Color(0x0ff09020),
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
           BoxShadow(
@@ -243,6 +248,7 @@ class DailyForecastCard extends StatelessWidget {
   final int uvi;
 
   const DailyForecastCard({
+    super.key,
     required this.day,
     required this.condition,
     required this.maxTemp,
@@ -259,7 +265,7 @@ class DailyForecastCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: const Color(0xff09020),
+        color: const Color(0x0ff09020),
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
           BoxShadow(
@@ -312,6 +318,7 @@ class ForecastDetail extends StatelessWidget {
   final String title;
 
   const ForecastDetail({
+    super.key,
     required this.icon,
     required this.label,
     required this.title,
